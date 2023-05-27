@@ -11,7 +11,7 @@ const Home = () => {
       try {
         const {results} = await getTrendingMovies();
         setMovies(results);
-        console.log(results);
+        // console.log(results);
       } catch (error) {
         console.error(error.message);
       }
