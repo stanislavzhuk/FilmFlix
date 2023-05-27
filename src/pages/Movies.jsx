@@ -9,7 +9,7 @@ const Movies = () => {
   const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const value = searchParams.get('query') ?? '';
+  const value = searchParams.get('query') || '';
 
   useEffect(() => {
     const getSearchMoviesData = async () => {
@@ -26,12 +26,17 @@ const Movies = () => {
   }, [value]);
 
   const handleSearchChange = (value) => {
-    setSearchParams({ query: value });
+    setSearchParams(value !== '' ? { query: value } : {});
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    setSearchParams({ query: value });
+    if (!value) {
+      alert('Please enter a search query');
+      return;
+    }
+    setSearchParams(value !== '' ? { query: value } : {});
+    // console.log({ query: value });
   };
 
   return (
