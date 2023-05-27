@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { getTrendingMovies } from 'services/themoviedb-api';
 import Gallery from 'components/Gallery/Gallery';
 import GalleryItem from 'components/GalleryItem/GalleryItem';
@@ -31,4 +31,4 @@ const Home = () => {
   )
 };
 
-export default Home
+export default Home;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const GalleryItem = ({ data, state }) => {
@@ -13,10 +13,10 @@ const GalleryItem = ({ data, state }) => {
             <li>{release_date}</li>
           </ul>
         </div>
-        <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title} loading="lazy"/>
+        <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title} loading="lazy" width="180" />
       </Link>
     </li>
   )
-}
+};
 
-export default GalleryItem
+export default GalleryItem;
