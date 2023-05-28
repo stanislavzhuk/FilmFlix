@@ -12,7 +12,7 @@ const Reviews = () => {
       try {
         const response = await getMovieReviews(movieId);
         setReviews(response);
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.error(error.message);
       }
@@ -28,7 +28,7 @@ const Reviews = () => {
       {reviews.length > 0 ? (
         <ReviewsItem reviews={reviews} />
       ) : (
-        <div>Unfortunately, we currently have no reviews for this movie.</div>
+        <div>We don't have any reviews for this movie yet.</div>
       )}
     </div>
   )};
