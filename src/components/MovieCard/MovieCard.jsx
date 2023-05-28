@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 const MovieCard = ({ info }) => {
@@ -36,6 +37,11 @@ const MovieCard = ({ info }) => {
       )
   );
   // console.log(productionCompaniesList);
+
+  const formatDate = date => {
+    const formattedDate = moment(date).format('DD MMM YYYY');
+    return formattedDate;
+  };
 
   return (
     <>
@@ -75,7 +81,7 @@ const MovieCard = ({ info }) => {
         <ul>
           <li>
             Release Date:
-            <p>{release_date}</p>
+            <p>{formatDate(release_date)}</p>
           </li>
 
           <li>
