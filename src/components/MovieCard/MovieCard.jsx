@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import defaultPosterImage from '../../images/default_poster.png';
 
 const MovieCard = ({ info }) => {
   const {
@@ -43,12 +44,14 @@ const MovieCard = ({ info }) => {
     return formattedDate;
   };
 
+  const posterImage = poster_path ? `https://image.tmdb.org/t/p/w200${poster_path}` : defaultPosterImage;
+
   return (
     <>
       <div>
         <a rel="noopener noreferrer" target="_blank" href={homepage}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            src={posterImage}
             alt={original_title}
             loading="lazy"
             width="300"
