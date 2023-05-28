@@ -17,7 +17,7 @@ const ReviewsItem = ({ reviews }) => {
       {reviews.map(review => {
         const { author_details, content, created_at, id, url } = review;
         const { avatar_path, username, rating } = author_details;
-        const reviewImage = !avatar_path || avatar_path.includes('secure.gravatar') ? defaultReviewAuthorImage : `https://image.tmdb.org/t/p/w200/${avatar_path}`;
+        const reviewImage = !avatar_path || avatar_path.includes('secure.gravatar') ? defaultReviewAuthorImage : `https://image.tmdb.org/t/p/w500/${avatar_path}`;
 
         return (
           <li key={id}>

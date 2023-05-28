@@ -44,7 +44,7 @@ const MovieCard = ({ info }) => {
     return formattedDate;
   };
 
-  const posterImage = poster_path ? `https://image.tmdb.org/t/p/w200${poster_path}` : defaultPosterImage;
+  const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : defaultPosterImage;
 
   return (
     <>

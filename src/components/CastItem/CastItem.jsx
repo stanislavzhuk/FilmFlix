@@ -6,7 +6,7 @@ const CastItem = ({ credits }) => {
     <ul>
       {credits.map(credit => {
         const { character, id, name, popularity, profile_path } = credit;
-        const castImage = profile_path ? `https://image.tmdb.org/t/p/w200${profile_path}` : defaultCastImage;
+        const castImage = profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultCastImage;
 
         return (
           <li key={id}>

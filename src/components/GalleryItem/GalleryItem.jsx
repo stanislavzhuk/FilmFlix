@@ -4,7 +4,7 @@ import defaultPosterImage from '../../images/default_poster.png';
 
 const GalleryItem = ({ data, state }) => {
   const { id, poster_path, release_date, title, vote_average } = data;
-  const posterImage = poster_path ? `https://image.tmdb.org/t/p/w200${poster_path}` : defaultPosterImage;
+  const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : defaultPosterImage;
 
   return (
     <li>
