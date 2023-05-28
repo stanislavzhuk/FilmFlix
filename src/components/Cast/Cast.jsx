@@ -12,7 +12,7 @@ const Cast = () => {
       try {
         const response = await getMovieCredits(movieId);
         setCredits(response);
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.error(error.message);
       }
