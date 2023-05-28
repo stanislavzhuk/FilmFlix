@@ -47,7 +47,7 @@ export const getMovieCredits = async (movieId) => {
 export const getMovieReviews = async (movieId) => {
   try {
     const response = await axios.get(`${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`);
-    return response.data;
+    return response.data.results;
   } catch (error) {
     throw new Error(error.message);
   }
