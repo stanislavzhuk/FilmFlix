@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import MovieDescription from 'components/MovieCard/MovieCard';
 import { getMovieDetails } from 'services/themoviedb-api';
 
@@ -29,6 +29,7 @@ const MovieDetails = () => {
         <Link to={goBackLocationRef.current}>Go back</Link>
         <MovieDescription info={movieInfo} />
       </article>
+      <Outlet />
     </>
   );
 };
