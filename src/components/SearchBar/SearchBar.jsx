@@ -13,7 +13,7 @@ const SearchBar = ({ value, onChange }) => {
       type="text"
       autoComplete="off"
       autoFocus
-      placeholder="Search movie"
+      placeholder="Type here"
       onChange={handleInputChange}
       debounceTimeout={500}
     />

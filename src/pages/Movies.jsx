@@ -42,6 +42,7 @@ const Movies = () => {
   return (
     <div>
       <form>
+        <h2>Search movies</h2>
         <button onClick={handleSearchSubmit}>Search</button>
         <SearchBar value={value} onChange={handleSearchChange} />
       </form>

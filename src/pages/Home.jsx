@@ -22,6 +22,7 @@ const Home = () => {
 
   return (
     <>
+      <h1>Trending movies today</h1>
       <Gallery>
         {movies.map(item => (
           <GalleryItem data={item} key={item.id} state={{ from: '/' }} />

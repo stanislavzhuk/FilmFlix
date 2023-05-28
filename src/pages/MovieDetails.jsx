@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import MovieDescription from 'components/MovieCard/MovieCard';
 import { getMovieDetails } from 'services/themoviedb-api';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -29,7 +30,9 @@ const MovieDetails = () => {
         <Link to={goBackLocationRef.current}>Go back</Link>
         <MovieDescription info={movieInfo} />
       </article>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
