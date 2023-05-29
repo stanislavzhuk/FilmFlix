@@ -1,0 +1,66 @@
+.card {
+  position: relative;
+
+  display: block;
+
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+
+  object-fit: cover;
+  overflow: hidden;
+
+  transition: all 250ms ease;
+}
+
+.card:hover,
+.card:focus {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.6);
+  transform: scale(1.03);
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  padding: 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
+
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  transition: all 250ms ease;
+}
+
+.card:hover .title,
+.card:focus .title {
+  bottom: -100%;
+}
+
+.description {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
+
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  transition: all 250ms ease;
+}
+
+.card:hover .description,
+.card:focus .description {
+  top: -100%;
+}
