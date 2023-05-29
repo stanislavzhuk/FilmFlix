@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import defaultPosterImage from '../../images/default_poster.png';
+import css from './MovieCard.module.css';
 
 const MovieCard = ({ info }) => {
   const {
@@ -30,6 +31,7 @@ const MovieCard = ({ info }) => {
         <li key={id}>
           {logo_path && (
             <img
+              className={css.descrLogo}
               src={`https://image.tmdb.org/t/p/w500${logo_path}`}
               alt={name}
               style={{ maxHeight: 50, maxWidth: 200 }}
@@ -48,10 +50,11 @@ const MovieCard = ({ info }) => {
   const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : defaultPosterImage;
 
   return (
-    <>
-      <div>
-        <a rel="noopener noreferrer" target="_blank" href={homepage}>
+    <section className={css.container}>
+      <div className={css.posterContainer}>
+        <a className={css.posterLink} rel="noopener noreferrer" target="_blank" href={homepage}>
           <img
+            className={css.posterImg}
             src={posterImage}
             alt={original_title}
             loading="lazy"
@@ -59,68 +62,74 @@ const MovieCard = ({ info }) => {
             max-height='709'
           />
         </a>
-        <p>{productionCountriesList !== '' ? productionCountriesList : 'Country information not available'}</p>
+        <p className={css.posterCountries}>{productionCountriesList !== '' ? productionCountriesList : 'Country information not available'}</p>
       </div>
 
-      <div>
-        <h2>
-          {title}
-          {release_date && <span> ({release_date.slice(0, 4)})</span>}
-        </h2>
-        <p>{tagline}</p>
-      </div>
+      <div className={css.descrContainer}>
+        <div>
+          <div>
+            <h1 className={css.descrTitle}>
+              {title}
+              {release_date && <span> ({release_date.slice(0, 4)})</span>}
+            </h1>
+            <p className={css.descrTagline}>{tagline}</p>
+          </div>
 
-      <div>
-        <h4>Overview: </h4>
-        <p>{overview !== '' ? overview : 'Unfortunately, there is no detailed overview available for this movie.'}</p>
-      </div>
+          <div>
+            <h3 className={css.title}>Overview: </h3>
+            <p className={css.descrOverview}>{overview !== '' ? overview : 'Unfortunately, there is no detailed overview available for this movie.'}</p>
+          </div>
 
-      <div>
-        <h4>Genres: </h4>
-        <p>{genresList !== '' ? genresList : 'No genres provided'}</p>
-      </div>
+          <div>
+            <h3 className={css.title}>Genres: </h3>
+            <p>{genresList !== '' ? genresList : 'No genres provided'}</p>
+          </div>
+        </div>
       
-      <div>
-        <h4>Statistics: </h4>
-        <ul>
-          <li>
-            Release Date:
-            <p>{formatDate(release_date)}</p>
-          </li>
+        <div className={css.descrStatsAndComp}>
+          <div>
+            <h3 className={css.title}>Statistics: </h3>
+            <ul className={css.descrStats}>
+              <li>
+                Release Date:
+                <p>{formatDate(release_date)}</p>
+              </li>
 
-          <li>
-            User Score:
-            <p>{Math.round(vote_average * 10)}%&ensp;</p>
-          </li>
+              <li>
+                User Score:
+                <p>{Math.round(vote_average * 10)}%&ensp;</p>
+              </li>
 
-          <li>
-            Votes:
-            <p>{vote_count !== '' ? vote_count : 'No votes yet'}</p>
-          </li>
-        </ul>
+              <li>
+                Votes:
+                <p>{vote_count !== '' ? vote_count : 'No votes'}</p>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className={css.title}>Production Companies:</h3>
+            {productionCompaniesList?.length > 0 && <ul className={css.descrProdComp}>{productionCompaniesList}</ul>}
+          </div>
+        </div>
+
+        <div>
+          <h2 className={css.additionalTitle}>Additional Information</h2>
+          <ul className={css.buttonContainer}>
+            <li className={css.buttonItem}>
+              <Link to='cast' className={css.buttonLink}>
+                Cast
+              </Link>
+            </li>
+            <li className={css.buttonItem}>
+              <Link to='reviews' className={css.buttonLink}>
+                Reviews
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <div>
-        <h4>Production Companies:</h4>
-        {productionCompaniesList?.length > 0 && <div>{productionCompaniesList}</div>}
-      </div>
-
-      <div>
-        <h3>Additional Information</h3>
-        <ul>
-          <li>
-            <Link to='cast'>
-              Cast
-            </Link>
-          </li>
-          <li>
-            <Link to='reviews'>
-              Reviews
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </>
+    </section>
   );
 };
 

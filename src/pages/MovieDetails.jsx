@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import MovieDescription from 'components/MovieCard/MovieCard';
 import { getMovieDetails } from 'services/themoviedb-api';
 import Loader from 'components/Loader/Loader';
+import css from '../components/MovieCard/MovieCard.module.css';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -26,8 +27,8 @@ const MovieDetails = () => {
 
   return (
     <>
-      <article>
-        <Link to={goBackLocationRef.current}>Go back</Link>
+      <article className={css.movieDetContainer}>
+        <Link to={goBackLocationRef.current} className={css.buttonGoBack}>Go back</Link>
         <MovieDescription info={movieInfo} />
       </article>
       <Suspense fallback={<Loader />}>
