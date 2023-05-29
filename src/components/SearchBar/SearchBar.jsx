@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {DebounceInput} from 'react-debounce-input';
+import { DebounceInput } from 'react-debounce-input';
+import css from './SearchBar.module.css';
 
 const SearchBar = ({ value, onChange }) => {
   const handleInputChange = (e) => {
@@ -10,11 +11,12 @@ const SearchBar = ({ value, onChange }) => {
 
   return (
     <DebounceInput
+      className={css.input}
       value={value}
       type="text"
       autoComplete="off"
       autoFocus
-      placeholder="Type here"
+      placeholder="Search movies"
       onChange={handleInputChange}
       debounceTimeout={500}
     />

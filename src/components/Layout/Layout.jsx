@@ -1,12 +1,14 @@
 import React, { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
+import Logo from 'components/Logo/Logo';
 import css from './Layout.module.css';
 
 const Layout = () => {
   return (
     <>
       <header className={css.header}>
+        <Logo />
         <ul className={css.navbar}>
           <li>
             <NavLink to='/' className={css.navlink}>Home</NavLink>
@@ -22,7 +24,7 @@ const Layout = () => {
         </Suspense>
       </main>
     </>
-  )
+  );
 };
 
 export default Layout;

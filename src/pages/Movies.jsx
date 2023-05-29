@@ -4,6 +4,7 @@ import SearchBar from 'components/SearchBar/SearchBar';
 import Gallery from 'components/Gallery/Gallery';
 import GalleryItem from 'components/GalleryItem/GalleryItem';
 import { searchMovies } from 'services/themoviedb-api';
+import css from '../components/App/App.module.css';
 
 const Movies = () => {
   const location = useLocation();
@@ -40,10 +41,10 @@ const Movies = () => {
   };
 
   return (
-    <div>
-      <form>
-        <h2>Search movies</h2>
-        <button onClick={handleSearchSubmit}>Search</button>
+    <div className={css.container}>
+      <form className={css.form}>
+        <h2 className={css.visually__hidden}>Search movies</h2>
+        <button onClick={handleSearchSubmit} className={css.button}></button>
         <SearchBar value={value} onChange={handleSearchChange} />
       </form>
 

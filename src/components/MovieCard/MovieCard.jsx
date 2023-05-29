@@ -1,6 +1,6 @@
 import React from 'react';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import defaultPosterImage from '../../images/default_poster.png';
 
