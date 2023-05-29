@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import defaultPosterImage from '../../images/default_poster.png';
 
 const MovieCard = ({ info }) => {
@@ -121,6 +122,37 @@ const MovieCard = ({ info }) => {
       </div>
     </>
   );
+};
+
+MovieCard.propTypes = {
+  info: PropTypes.shape({
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+      })
+    ),
+    homepage: PropTypes.string,
+    original_title: PropTypes.string,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string,
+    production_companies: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        logo_path: PropTypes.string,
+        name: PropTypes.string,
+      })
+    ),
+    production_countries: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+      })
+    ),
+    release_date: PropTypes.string,
+    tagline: PropTypes.string,
+    title: PropTypes.string,
+    vote_average: PropTypes.number,
+    vote_count: PropTypes.number,
+  }),
 };
 
 export default MovieCard;

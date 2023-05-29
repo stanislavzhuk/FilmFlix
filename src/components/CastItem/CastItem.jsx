@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import defaultCastImage from '../../images/default_cast.png';
 
 const CastItem = ({ credits }) => {
@@ -19,6 +20,18 @@ const CastItem = ({ credits }) => {
       })}
     </ul>
   );
+};
+
+CastItem.propTypes = {
+  credits: PropTypes.arrayOf(
+    PropTypes.shape({
+      character: PropTypes.string,
+      id: PropTypes.number,
+      name: PropTypes.string,
+      popularity: PropTypes.number,
+      profile_path: PropTypes.string,
+    })
+  ),
 };
 
 export default CastItem;

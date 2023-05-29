@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import defaultReviewAuthorImage from '../../images/default_review_author.png';
 
 const ReviewsItem = ({ reviews }) => {
@@ -38,7 +39,23 @@ const ReviewsItem = ({ reviews }) => {
         )
       })}
     </ul>
-  )
+  );
+};
+
+ReviewsItem.propTypes = {
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      author_details: PropTypes.shape({
+        avatar_path: PropTypes.string,
+        username: PropTypes.string,
+        rating: PropTypes.number,
+      }),
+      content: PropTypes.string,
+      created_at: PropTypes.string,
+      id: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
 };
 
 export default ReviewsItem;

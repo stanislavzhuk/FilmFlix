@@ -30,7 +30,7 @@ const Cast = () => {
         <div>Regrettably, there is no information about the cast for this movie.</div>
       )}
     </div>
-  )
+  );
 };
 
 export default Cast;

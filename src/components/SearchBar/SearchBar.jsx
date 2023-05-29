@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {DebounceInput} from 'react-debounce-input';
 
 const SearchBar = ({ value, onChange }) => {
@@ -18,6 +19,11 @@ const SearchBar = ({ value, onChange }) => {
       debounceTimeout={500}
     />
   );
+};
+
+SearchBar.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default SearchBar;
