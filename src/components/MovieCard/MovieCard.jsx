@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { ToStringConverter, formatDate, formatPoster } from 'services/utils';
+import PropTypes from 'prop-types';
 import css from './MovieCard.module.css';
 
 const MovieCard = ({ info }) => {

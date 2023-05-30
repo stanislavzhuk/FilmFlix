@@ -1,7 +1,7 @@
 import React from 'react';
+import { formatAvatar, formatDateTime, ratingConvert } from 'services/utils';
 import PropTypes from 'prop-types';
 import css from './ReviewsItem.module.css';
-import { formatAvatar, formatDateTime, ratingConvert } from 'services/utils';
 
 const ReviewsItem = ({ reviews }) => {
   return (
