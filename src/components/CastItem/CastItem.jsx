@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultCastImage from '../../images/default_cast.png';
+import css from './CastItem.module.css';
 
 const CastItem = ({ credits }) => {
   return (
-    <ul>
+    <ul className={css.castList}>
       {credits.map(credit => {
         const { character, id, name, popularity, profile_path } = credit;
         const castImage = profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultCastImage;
 
         return (
-          <li key={id}>
-            <img src={castImage} alt={name} width="200" />
-            <h4>{name}</h4>
-            <p>{character}</p>
-            <p>{Number.parseFloat(popularity).toFixed(1)} ☆</p>
+          <li key={id} className={css.castItem}>
+            <img className={css.castImg} src={castImage} alt={name} width="200" />
+            <h4 className={css.castName}>{name}</h4>
+            <p className={css.castCharacter}>{character}</p>
+            <p className={css.castPopularity}>Popularity: {Number.parseFloat(popularity).toFixed(1)} ☆</p>
           </li>
         );
       })}
