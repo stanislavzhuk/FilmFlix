@@ -19,14 +19,25 @@ const ReviewsItem = ({ reviews }) => {
       {reviews.map(review => {
         const { author_details, content, created_at, id, url } = review;
         const { avatar_path, username, rating } = author_details;
-        const reviewImage = !avatar_path || avatar_path.includes('secure.gravatar') ? defaultReviewAuthorImage : `https://image.tmdb.org/t/p/w500/${avatar_path}`;
+
+        const formatAvatar = avatar => {
+          if (!avatar) {
+            return defaultReviewAuthorImage;
+          }
+          const arr = Array.from(avatar);
+          arr.shift();
+          if (arr.length <= 31) {
+            return `https://image.tmdb.org/t/p/w500/${arr.join('')}`;
+          }
+          return arr.join('');
+        };
 
         return (
           <li key={id} className={css.reviewsItem}>
             <a className={css.reviewsContLink} rel="noopener noreferrer" target="_blank" href={url}>
               <h4 className={css.reviewsName}>{username}</h4>
               <p>{rating !== null && `Rating: ${ratingConvert(rating)}`}</p>
-              <img src={reviewImage} alt="Review Author" width="100" />
+              <img src={formatAvatar(avatar_path)} alt="Review Author" width="100" />
               <p>{content}</p>
               <p>Created: {formatDateTime(created_at)}</p>
             </a>
