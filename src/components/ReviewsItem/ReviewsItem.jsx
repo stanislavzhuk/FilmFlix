@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import defaultReviewAuthorImage from '../../images/default_review_author.png';
+import css from './ReviewsItem.module.css';
 
 const ReviewsItem = ({ reviews }) => {
   const ratingConvert = rating => {
@@ -14,26 +15,20 @@ const ReviewsItem = ({ reviews }) => {
   };
 
   return (
-    <ul>
+    <ul className={css.reviewsList}>
       {reviews.map(review => {
         const { author_details, content, created_at, id, url } = review;
         const { avatar_path, username, rating } = author_details;
         const reviewImage = !avatar_path || avatar_path.includes('secure.gravatar') ? defaultReviewAuthorImage : `https://image.tmdb.org/t/p/w500/${avatar_path}`;
 
         return (
-          <li key={id}>
-            <div>
-              <h4>{username}</h4>
-              <div>
-                <img src={reviewImage} alt="Review Author" width="100" />
-                <ul>
-                  <li>{rating !== null && `Rating: ${ratingConvert(rating)}`}</li>
-                  <li>Created: {formatDateTime(created_at)}</li>
-                </ul>
-              </div>
-            </div>
-            <a rel="noopener noreferrer" target="_blank" href={url}>
+          <li key={id} className={css.reviewsItem}>
+            <a className={css.reviewsContLink} rel="noopener noreferrer" target="_blank" href={url}>
+              <h4 className={css.reviewsName}>{username}</h4>
+              <p>{rating !== null && `Rating: ${ratingConvert(rating)}`}</p>
+              <img src={reviewImage} alt="Review Author" width="100" />
               <p>{content}</p>
+              <p>Created: {formatDateTime(created_at)}</p>
             </a>
           </li>
         )

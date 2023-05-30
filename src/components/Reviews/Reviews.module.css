@@ -1,0 +1,24 @@
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 0 auto;
+  padding: 10px 10px;
+  max-width: 1400px;
+
+  text-align: center;
+
+  color: #ffffff;
+  border-top: 1px solid #fff;
+}
+
+.reviewsTitle {
+  margin: 15px 0;
+  font-size: 30px;
+}
+
+.reviewsAltText {
+  margin-bottom: 25px;
+  font-size: 26px;
+}
