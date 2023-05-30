@@ -11,5 +11,10 @@
 
 .castTitle {
   margin: 15px 0;
+  font-size: 30px;
+}
+
+.castAltText {
   font-size: 26px;
+  margin-bottom: 25px;
 }

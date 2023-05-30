@@ -28,7 +28,7 @@ const Cast = () => {
       {credits.length > 0 ? (
         <CastItem credits={credits} />
       ) : (
-        <div>Regrettably, there is no information about the cast for this movie.</div>
+        <p className={css.castAltText}>Regrettably, there is no information about the cast for this movie.</p>
       )}
     </div>
   );
