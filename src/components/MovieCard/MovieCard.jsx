@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
 import PropTypes from 'prop-types';
-import defaultPosterImage from '../../images/default_poster.png';
+import { ToStringConverter, formatDate, formatPoster } from 'services/utils';
 import css from './MovieCard.module.css';
 
 const MovieCard = ({ info }) => {
@@ -21,10 +20,6 @@ const MovieCard = ({ info }) => {
     vote_count
   } = info;
 
-  const genresList = genres?.map(genre => genre.name).join(', ');
-
-  const productionCountriesList = production_countries?.map(countrie => countrie.name).join(', ');
-
   const productionCompaniesList = production_companies?.map(
     ({ id, logo_path, name }) =>
       logo_path && (
@@ -42,27 +37,20 @@ const MovieCard = ({ info }) => {
   );
   // console.log(productionCompaniesList);
 
-  const formatDate = date => {
-    const formattedDate = moment(date).format('DD MMM YYYY');
-    return formattedDate;
-  };
-
-  const posterImage = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : defaultPosterImage;
-
   return (
     <section className={css.container}>
       <div className={css.posterContainer}>
         <a className={css.posterLink} rel="noopener noreferrer" target="_blank" href={homepage}>
           <img
             className={css.posterImg}
-            src={posterImage}
+            src={formatPoster(poster_path)}
             alt={original_title}
             loading="lazy"
             width="300"
             max-height='709'
           />
         </a>
-        <p className={css.posterCountries}>{productionCountriesList !== '' ? productionCountriesList : 'Country information not available'}</p>
+        <p className={css.posterCountries}>{ToStringConverter(production_countries) !== '' ? ToStringConverter(production_countries) : 'Country information not available'}</p>
       </div>
 
       <div className={css.descrContainer}>
@@ -82,7 +70,7 @@ const MovieCard = ({ info }) => {
 
           <div>
             <h3 className={css.title}>Genres: </h3>
-            <p>{genresList !== '' ? genresList : 'No genres provided'}</p>
+            <p>{ToStringConverter(genres) !== '' ? ToStringConverter(genres) : 'No genres provided'}</p>
           </div>
         </div>
       
