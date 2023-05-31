@@ -9,37 +9,61 @@
 .castItem {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 5px;
-  max-width: 200px;
+  gap: 20px;
+  padding: 10px;
+  /* max-width: 200px; */
 
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   overflow: hidden;
+
+  @media screen and (min-width: 480px) {
+    max-width: 200px;
+    gap: 10px;
+    padding: 5px;
+  }
 }
 
 .castImg {
-  width: 200px;
-  height: 300px;
-
+  width: 400px;
   border-radius: 7px 7px 0 0;
   object-fit: cover;
   object-position: center;
+
+  @media screen and (min-width: 480px) {
+    width: 200px;
+    height: 300px;
+  }
 }
 
 .castName {
-  font-size: 18px;
+  font-size: 30px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media screen and (min-width: 480px) {
+    font-size: 18px;
+  }
 }
 
 .castCharacter {
+  font-size: 25px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media screen and (min-width: 480px) {
+    font-size: 16px;
+  }
 }
 
 .castPopularity {
   margin-bottom: 5px;
+
+  font-size: 25px;
+  
+  @media screen and (min-width: 480px) {
+    font-size: 16px;
+  }
 }
