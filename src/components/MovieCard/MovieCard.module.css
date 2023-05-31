@@ -38,6 +38,7 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -45,6 +46,10 @@
   padding: 10px 10px;
   margin: 0 auto;
   max-width: 1400px;
+
+  @media screen and (min-width: 999px) {
+    flex-direction: row;
+  }
 }
 
 .posterContainer {
@@ -73,7 +78,10 @@
 .posterImg {
   width: 100%;
   max-width: 500px;
-  width: 50vw;
+
+  @media screen and (min-width: 999px) {
+    width: 50vw;
+  }
 }
 
 .posterCountries {
@@ -98,12 +106,16 @@
   flex-direction: column;
   gap: 30px;
   padding: 16px;
-  width: 50%;
+  max-width: 468px;
   min-height: 718px;
 
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+
+  @media screen and (min-width: 999px) {
+    max-width: 50%;
+  }
 }
 
 .descrTitle {
@@ -161,7 +173,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 8px;
   max-height: 110px;
   padding: 20px;
@@ -170,6 +182,14 @@
   border-radius: 10px;
 
   overflow: auto;
+
+  @media screen and (min-width: 430px) {
+    justify-content: space-around;
+  }
+
+  @media screen and (min-width: 999px) {
+    justify-content: space-between;
+  }
 }
 
 .descrProdComp::-webkit-scrollbar {
