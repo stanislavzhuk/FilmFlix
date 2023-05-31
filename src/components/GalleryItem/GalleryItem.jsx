@@ -17,7 +17,7 @@ const GalleryItem = ({ data, state }) => {
             <li>{formatDate(release_date)}</li>
           </ul>
         </div>
-        <img src={formatPoster(poster_path)} alt={title} loading="lazy" width="250" />
+        <img className={css.image} src={formatPoster(poster_path)} alt={title} loading="lazy" width="" />
       </Link>
     </li>
   );
