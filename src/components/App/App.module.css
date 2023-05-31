@@ -26,12 +26,14 @@
 
 .title {
   margin-bottom: 30px;
+  padding: 10px 20px;
 
   font-size: 35px;
   line-height: 1.2;
 
-  /* color: #001287;
-  text-shadow: #ffffff 1px 1px 5px; */
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
 }
 
 .form {
