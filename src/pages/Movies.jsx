@@ -4,6 +4,7 @@ import SearchBar from 'components/SearchBar/SearchBar';
 import Gallery from 'components/Gallery/Gallery';
 import GalleryItem from 'components/GalleryItem/GalleryItem';
 import { searchMovies } from 'services/themoviedb-api';
+import toast, { Toaster } from 'react-hot-toast';
 import css from '../components/App/App.module.css';
 
 const Movies = () => {
@@ -33,7 +34,8 @@ const Movies = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (!value) {
-      alert('Please enter a search query');
+      // alert('Please enter a search query');
+      toast.error('Please enter a search query');
       return;
     }
     setSearchParams(value !== '' ? { query: value } : {});
@@ -50,6 +52,7 @@ const Movies = () => {
 
       {movies.length === 0 && value && <h2>No results found</h2>}
 
+      <Toaster />
       <Gallery>
         {movies.map((movie) => (
           <GalleryItem data={movie} key={movie.id} state={{ from: location }} />

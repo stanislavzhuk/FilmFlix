@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import MovieDescription from 'components/MovieCard/MovieCard';
 import { getMovieDetails } from 'services/themoviedb-api';
 import Loader from 'components/Loader/Loader';
+import { formatBGPoster } from 'services/utils';
 import css from '../components/MovieCard/MovieCard.module.css';
 
 const MovieDetails = () => {
@@ -24,11 +25,14 @@ const MovieDetails = () => {
 
     getMovieDetailsData();
   }, [movieId])
-
+  
+  const { backdrop_path } = movieInfo;
+  
   return (
     <>
       <article className={css.movieDetContainer}>
         <Link to={goBackLocationRef.current} className={css.buttonGoBack}>Go back</Link>
+        {<div className={css.backdrop} style={{ backgroundImage: formatBGPoster(backdrop_path) }}></div>}
         <MovieDescription info={movieInfo} />
       </article>
       <Suspense fallback={<Loader />}>
