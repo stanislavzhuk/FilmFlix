@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const getTrendingMoviesData = async () => {
       try {
-        const {results} = await getTrendingMovies();
+        const { results } = await getTrendingMovies();
         setMovies(results);
         // console.log(results);
       } catch (error) {
@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <div className={css.container}>
-      <h1 className={css.title}>Trending movies today</h1>
+      <h1 className={`${css.title} ${css.visually__hidden}`}>Trending movies today</h1>
       <Gallery>
         {movies.map(item => (
           <GalleryItem data={item} key={item.id} state={{ from: '/' }} />
