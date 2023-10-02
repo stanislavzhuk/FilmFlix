@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/FilmFlix/static/css/main.49984eec.css",
-    "main.js": "/FilmFlix/static/js/main.80415aa4.js",
+    "main.js": "/FilmFlix/static/js/main.6c78682c.js",
     "static/css/68.5362fff3.chunk.css": "/FilmFlix/static/css/68.5362fff3.chunk.css",
     "static/js/68.0f637165.chunk.js": "/FilmFlix/static/js/68.0f637165.chunk.js",
     "static/css/453.52aab88b.chunk.css": "/FilmFlix/static/css/453.52aab88b.chunk.css",
@@ -21,7 +21,7 @@
     "static/media/search.png": "/FilmFlix/static/media/search.f8625530f28f5f5d0bfa.png",
     "index.html": "/FilmFlix/index.html",
     "main.49984eec.css.map": "/FilmFlix/static/css/main.49984eec.css.map",
-    "main.80415aa4.js.map": "/FilmFlix/static/js/main.80415aa4.js.map",
+    "main.6c78682c.js.map": "/FilmFlix/static/js/main.6c78682c.js.map",
     "68.5362fff3.chunk.css.map": "/FilmFlix/static/css/68.5362fff3.chunk.css.map",
     "68.0f637165.chunk.js.map": "/FilmFlix/static/js/68.0f637165.chunk.js.map",
     "453.52aab88b.chunk.css.map": "/FilmFlix/static/css/453.52aab88b.chunk.css.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.49984eec.css",
-    "static/js/main.80415aa4.js"
+    "static/js/main.6c78682c.js"
   ]
 }
